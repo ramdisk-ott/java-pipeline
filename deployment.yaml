@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: retail-tomcat-deployment
+  labels:
+    app: retail-api-tomcat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: retail-api-tomcat
+  template:
+    metadata:
+      labels:
+        app: retail-api-tomcat
+    spec:
+      containers:
+        - name: tomcat
+          image: rameshandroid99/sample:21
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: retail-api-tomcat
+spec:
+  selector:
+    app: retail-api-tomcat
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
