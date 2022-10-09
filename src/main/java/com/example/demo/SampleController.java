@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 public class SampleController {
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public String sample() {
+    public String test() {
         return "test api  is working";
     }
 
