@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-api-deployment
+  labels:
+    app: sample-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-api
+  template:
+    metadata:
+      labels:
+        app: sample-api
+    spec:
+      containers:
+        - name: tomcat
+          image: rameshandroid99/sample:20
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+      imagePullSecrets:
+        - name: docker-hub-cred
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: sample-api
+spec:
+  selector:
+    app: sample-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
