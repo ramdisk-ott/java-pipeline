@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: tomcat
-          image: rameshandroid99/sample:20
+          image: rameshandroid99/sample:22
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
