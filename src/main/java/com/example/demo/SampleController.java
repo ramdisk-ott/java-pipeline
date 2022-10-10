@@ -13,7 +13,7 @@ import java.util.List;
 public class SampleController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String test() {
-        return "test api  is working";
+        return "test api  26";
     }
 
     @RequestMapping(value = "list", method = RequestMethod.GET)
