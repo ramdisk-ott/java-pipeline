@@ -19,7 +19,7 @@ public class SampleController {
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public List<Asset> list() {
         List<Asset> list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             Asset asset = new Asset();
             asset.setID((i + 1) + "");
             asset.setSize((1) + "");
